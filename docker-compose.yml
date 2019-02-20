@@ -3,7 +3,7 @@ services:
   node:
     build: .
     environment:
-      - NODE_ENV=production
+      - NODE_ENV=develop
     volumes:
       - ./:/usr/src/app
     ports:

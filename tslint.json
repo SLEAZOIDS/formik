@@ -1,10 +1,25 @@
 {
   "extends": ["tslint:recommended", "tslint-react", "tslint-config-prettier"],
+  "defaultSeverity": "warning",
   "linterOptions": {
     "exclude": [
       "config/**/*.js",
       "node_modules/**/*.ts",
       "coverage/lcov-report/*.js"
     ]
-  }
+  },
+  "jsRules": {},
+  "rules": {
+    "quotemark": [ true, "single", "jsx-double" ],
+    "semicolon": [ false, "never" ],
+    "object-literal-sort-keys": false,
+    "trailing-comma": false,
+    "variable-name": [true, "check-format", "allow-leading-underscore", "allow-pascal-case", "ban-keywords"],
+    "jsx-boolean-value": false,
+    "jsx-no-lambda": false,
+    "no-console": false
+  },
+  "rulesDirectory": [
+    "tslint-plugin-prettier"
+  ]
 }

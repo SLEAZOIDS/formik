@@ -22,9 +22,7 @@ const genderItems: IRadioButtonItem[] = [
 ]
 
 /**
- * 内部フォーム
- *
- * @type {React.NamedExoticComponent<FormikProps<IFormValue> & IFormProps>}
+ * フォーム
  */
 const InnerForm = React.memo<FormikProps<IFormValue> & IFormProps>(props => (
     <Form id="form" className="form">
@@ -40,7 +38,7 @@ const InnerForm = React.memo<FormikProps<IFormValue> & IFormProps>(props => (
 ))
 
 /**
- * フォーム
+ * FormikをHOCしたフォーム
  */
 const MainForm = withFormik<IFormProps, IFormValue>({
     mapPropsToValues: props => ({

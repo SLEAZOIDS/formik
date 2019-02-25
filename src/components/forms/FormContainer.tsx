@@ -1,19 +1,11 @@
 import * as React from 'react'
-import { IFieldProps } from './fields/IField'
 
-/**
- * IFieldPropsから不要なpropsを削除した型
- */
-type PartialProps = Pick<
-    IFieldProps,
-    Exclude<keyof IFieldProps, 'field' | 'readonly'>
->
-
-/**
- * フォームコンテナのPropsタイプ
- */
-interface IProps extends PartialProps {
+interface IProps {
     step?: number
+    setFieldValue?: (
+        arg1: string,
+        arg2: number | string | object | File
+    ) => void
 }
 
 /**

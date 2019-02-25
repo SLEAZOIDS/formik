@@ -60,6 +60,13 @@ class FormTemplate extends React.PureComponent<
     public componentDidMount() {
         // APIで必要なデータを取得するならばここに記述
 
+        // 例えばフォームでデータ更新処理をさせたい時に更新対象のデータを取ってくるなど
+        // stateのdataがフォームと対応するデータ
+        // this.setState({ data: getData })
+
+        // それ以外のマスタデータなどを持ってきたい時はotherDataに入れておく
+        // this.setState({ otherData: getOtherData })
+
         // APIでデータ取得後にローディングを終了させる
         this.setState({ isLoading: false })
     }
@@ -79,9 +86,14 @@ class FormTemplate extends React.PureComponent<
                 ) : (
                     <>
                         {this.state.step === FormSteps.COMPLETE &&
-                            this.state.isValid && (
-                                <NoticeLabel value="登録しました" />
-                            )}
+                            [
+                                this.state.isValid ? (
+                                    <NoticeLabel value="成功" key="notice_success" />
+                                ) : (
+                                    <NoticeLabel value="失敗" type="fail" key="notice_fail" />
+                                )
+                            ]
+                        }
                         <this.props.form
                             data={this.state.data}
                             otherData={this.state.otherData}
@@ -105,12 +117,17 @@ class FormTemplate extends React.PureComponent<
 
     /**
      * フォームのsubmit時に呼ばれる関数
+     * FormikのHOCで呼ばれるようにしている
      */
-    private handleSubmit = () => {
+    private handleSubmit = (values: any) => {
         if (this.proceedStep() === FormSteps.COMPLETE) {
             // 最終処理
+            // 例えば、valuesに入力した値がセットされているのでそれをPOSTするとかの処理
 
-            //　処理が終わったらNoticeLabelを表示させる
+            // 出力例:　{name: "名無しの権兵衛", gender: "0"}
+            console.log(values)
+
+            // 処理が成功すれば成功したNoticeLabelを表示させる
             this.setState({ isValid: true })
         }
     }

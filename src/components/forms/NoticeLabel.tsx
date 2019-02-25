@@ -1,27 +1,31 @@
 import * as React from 'react'
 
-/**
- * お知らせラベルのスタイル
- */
-const styles: React.CSSProperties = {
+const styles = {
     textAlign: 'center',
     padding: 10,
     marginBottom: 15,
+} as React.CSSProperties
+
+const success: React.CSSProperties = {
+    ...styles,
     backgroundColor: 'aliceblue'
 }
 
-/**
- * お知らせラベルのインターフェース
- */
-interface INoticeLabelProps {
-    value: string
+const fail: React.CSSProperties = {
+    ...styles,
+    backgroundColor: 'red'
 }
 
-/**
- * お知らせラベル・コンポーネント
- */
+
+interface INoticeLabelProps {
+    value: string,
+    type?: string
+}
+
 const NoticeLabel = React.memo<INoticeLabelProps>(props => (
-    <div style={styles}>{props.value}</div>
+    props.type === 'fail' ?
+        (<div style={fail}>{props.value}</div>):
+        (<div style={success}>{props.value}</div>)
 ))
 
 export default NoticeLabel

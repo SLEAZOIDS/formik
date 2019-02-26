@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { TextField } from '../../styled'
-import { IFieldProps } from './IField'
+import { IFieldProps } from './FieldExports'
 
 /**
  * テキスト入力のプロパティのインターフェース

@@ -4,7 +4,7 @@ import { Theme } from '@material-ui/core/styles/createMuiTheme'
 import * as React from 'react'
 import ConfirmFormFooter from './footers/ConfirmFormFooter'
 import InputFormFooter from './footers/InputFormFooter'
-import { FormSteps, IFormProps } from './IForm'
+import { FormSteps, IFormProps } from './FormExports'
 import NoticeLabel from './NoticeLabel'
 
 interface IProps {

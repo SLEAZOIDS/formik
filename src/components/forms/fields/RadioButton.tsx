@@ -3,7 +3,7 @@ import Radio from '@material-ui/core/Radio'
 import RadioGroup from '@material-ui/core/RadioGroup'
 import { createStyles, withStyles, WithStyles } from '@material-ui/core/styles'
 import * as React from 'react'
-import { IFieldProps } from './IField'
+import { IFieldProps } from './FieldExports'
 
 /**
  * ラジオボタンのアイテムリストのインターフェース

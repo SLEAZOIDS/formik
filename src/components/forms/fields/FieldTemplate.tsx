@@ -1,7 +1,7 @@
 import { ErrorMessage } from 'formik'
 import * as React from 'react'
-import { FormSteps } from '../IForm'
-import { IFieldProps } from './IField'
+import { FormSteps } from '../FormExports'
+import { IFieldProps } from './FieldExports'
 
 /**
  * IFieldPropsから不要なpropsを削除した型

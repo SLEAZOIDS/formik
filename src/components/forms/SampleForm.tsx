@@ -4,8 +4,8 @@ import * as Yup from 'yup'
 import FieldTemplate from './fields/FieldTemplate'
 import RadioButton, { IRadioButtonItem } from './fields/RadioButton'
 import TextInput from './fields/TextInput'
-import FormContainer from './FormContainer'
-import { IFormProps } from './IForm'
+import FieldWrapper from './FieldWrapper'
+import { IFormProps } from './FormExports'
 
 interface IFormValue {
     name: string
@@ -26,14 +26,14 @@ const genderItems: IRadioButtonItem[] = [
  */
 const InnerForm = React.memo<FormikProps<IFormValue> & IFormProps>(props => (
     <Form id="form" className="form">
-        <FormContainer step={props.step} setFieldValue={props.setFieldValue}>
+        <FieldWrapper step={props.step} setFieldValue={props.setFieldValue}>
             <FieldTemplate label="氏名" name="name" required={true}>
                 <Field component={TextInput} />
             </FieldTemplate>
             <FieldTemplate label="性別" name="gender" required={true}>
                 <Field component={RadioButton} items={genderItems} />
             </FieldTemplate>
-        </FormContainer>
+        </FieldWrapper>
     </Form>
 ))
 

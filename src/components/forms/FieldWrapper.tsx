@@ -8,10 +8,7 @@ interface IProps {
     ) => void
 }
 
-/**
- * フォームコンテナのコンポーネント
- */
-const FormContainer: React.FC<IProps> = props => {
+const FieldWrapper: React.FC<IProps> = props => {
     const { children, setFieldValue, step } = props
 
     const childrenWithProps = React.Children.map(children, child => {
@@ -27,4 +24,4 @@ const FormContainer: React.FC<IProps> = props => {
     return <div>{childrenWithProps}</div>
 }
 
-export default React.memo(FormContainer)
+export default React.memo(FieldWrapper)

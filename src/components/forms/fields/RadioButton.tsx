@@ -40,7 +40,7 @@ const styles = () =>
 /**
  * ラジオボタン
  */
-class RadioButton extends React.PureComponent<
+class RadioButton extends React.Component<
     IRadioButtonProps & WithStyles<typeof styles>
 > {
     /**
@@ -48,7 +48,6 @@ class RadioButton extends React.PureComponent<
      */
     public render() {
         const { classes, field, items, label, prefix, readonly } = this.props
-
         return (
             <div>
                 {prefix ? (
@@ -83,6 +82,21 @@ class RadioButton extends React.PureComponent<
                     </RadioGroup>
                 )}
             </div>
+        )
+    }
+
+    /**
+     * コンポーネントを際描写する必要があるかを判定
+     *
+     * @param {ITextInputProps} nextProps
+     * @returns {boolean}
+     */
+    public shouldComponentUpdate(
+        nextProps: IRadioButtonProps,
+    ) {
+        return (
+            this.props.readonly !== nextProps.readonly ||
+            this.props.field.value !== nextProps.field.value
         )
     }
 

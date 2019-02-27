@@ -86,13 +86,13 @@ class FormTemplate extends React.PureComponent<
                 ) : (
                     <>
                         {this.state.step === FormSteps.COMPLETE &&
-                            [
+                            (
                                 this.state.isValid ? (
-                                    <NoticeLabel value="成功" key="notice_success" />
+                                    <NoticeLabel value="成功" />
                                 ) : (
-                                    <NoticeLabel value="失敗" type="fail" key="notice_fail" />
+                                    <NoticeLabel value="失敗" type="fail" />
                                 )
-                            ]
+                            )
                         }
                         <this.props.form
                             data={this.state.data}

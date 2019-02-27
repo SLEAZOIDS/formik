@@ -7,8 +7,6 @@ import { IFieldProps } from './FieldExports'
  */
 interface ITextInputProps extends IFieldProps {
     type?: string
-    multiLine?: boolean
-    rows?: number
     prefix?: string
 }
 
@@ -37,21 +35,13 @@ export default class TextInput extends React.Component<
      * レンダリング
      */
     public render() {
-        const { multiLine, readonly, rows, prefix, type } = this.props
+        const { readonly, prefix, type } = this.props
         const { value } = this.state
         return (
             <>
                 {prefix || null}
                 {readonly ? (
                     <label>{value}</label>
-                ) : multiLine ? (
-                    <TextField
-                        value={value}
-                        multiline={true}
-                        rows={rows}
-                        onChange={this.handleChange}
-                        onBlur={this.handleBlur}
-                    />
                 ) : (
                     <TextField
                         value={value}
@@ -77,7 +67,7 @@ export default class TextInput extends React.Component<
     ) {
         return (
             this.props.readonly !== nextProps.readonly ||
-            nextProps.field.value !== nextState.value
+            this.state.value !== nextState.value
         )
     }
 
